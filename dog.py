@@ -7,4 +7,4 @@ class Dog:
         self.age = age
 
     def speak(self, sound):
-        print "do you hear that? " + sound + " " + self.name + " the dog said"
+        print "do you hear that? \'" + sound + "\' " + self.name + " the dog said"
