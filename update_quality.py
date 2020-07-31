@@ -1,19 +1,14 @@
 def update_quality(awards):
     for award in awards:
         if award.name != 'Blue First' and award.name != 'Blue Compare':
-            if award.quality > 0:
-                if award.name != 'Blue Distinction Plus':
-                    award.quality -= 1
+            award.decrement_quality()
         else:
-            if award.quality < 50:
-                award.quality += 1
-                if award.name == 'Blue Compare':
-                    if award.expires_in < 11:
-                        if award.quality < 50:
-                            award.quality += 1
-                    if award.expires_in < 6:
-                        if award.quality < 50:
-                            award.quality += 1
+            award.increment_quality()
+            if award.name == 'Blue Compare':
+                if award.expires_in < 11:
+                    award.increment_quality()
+                if award.expires_in < 6:
+                    award.increment_quality()
 
         if award.name != 'Blue Distinction Plus':
             award.expires_in -= 1
@@ -21,12 +16,9 @@ def update_quality(awards):
         if award.expires_in < 0:
             if award.name != 'Blue First':
                 if award.name != 'Blue Compare':
-                    if award.quality > 0:
-                        if award.name != 'Blue Distinction Plus':
-                            award.quality -= 1
+                    award.decrement_quality()
                 else:
-                    award.quality = award.quality - award.quality
+                    award.remove_all_quality()
             else:
-                if award.quality < 50:
-                    award.quality += 1
+                award.increment_quality()
 

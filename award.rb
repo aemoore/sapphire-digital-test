@@ -12,6 +12,10 @@ Award = Struct.new(:name, :expires_in, :quality) do
     end
   end
 
+  def remove_all_quality
+    self.quality = 0
+  end
+
 end
 
 # award = Award.new("Dave", 12, 50)
