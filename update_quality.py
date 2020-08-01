@@ -13,8 +13,8 @@ def update_quality(awards):
                     award.increment_quality()
             else:
                 if award.name == 'Blue Star':
-                    #if award.expires_in > 11:
-                        # award.increment_quality()
+                    if award.expires_in > 11:
+                        award.increment_quality()
                     if award.expires_in > 6:
                         award.increment_quality()
 
