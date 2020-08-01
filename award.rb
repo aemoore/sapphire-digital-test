@@ -17,8 +17,3 @@ Award = Struct.new(:name, :expires_in, :quality) do
   end
 
 end
-
-# award = Award.new("Dave", 12, 50)
-# award.decrement_quality
-# puts(award.name)     #=> "Dave"
-# puts(award.quality)

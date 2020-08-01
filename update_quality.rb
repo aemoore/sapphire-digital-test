@@ -5,6 +5,9 @@ def update_quality(awards)
 
     if award.name != 'Blue First' && award.name != 'Blue Compare'
       award.decrement_quality
+      if award.name == 'Blue Star'
+        award.decrement_quality
+      end
     else
       award.increment_quality
       if award.name == 'Blue Compare'
@@ -25,6 +28,9 @@ def update_quality(awards)
       if award.name != 'Blue First'
         if award.name != 'Blue Compare'
           award.decrement_quality
+          if award.name == 'Blue Star'
+            award.decrement_quality
+          end
         else
           award.remove_all_quality
         end
