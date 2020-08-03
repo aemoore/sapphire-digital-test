@@ -1,6 +1,23 @@
 require 'award'
 require 'strings'
 
+def handle_expired_awards(award)
+  if award.expires_in < 0
+    if award.name != BLUE_FIRST
+      if award.name != BLUE_COMPARE
+        award.decrement_quality
+        if award.name == BLUE_STAR
+          award.decrement_quality
+        end
+      else
+        award.remove_all_quality
+      end
+    else
+      award.increment_quality
+    end
+  end
+end
+
 def update_quality(awards)
   awards.each do |award|
 
@@ -22,21 +39,6 @@ def update_quality(awards)
     end
 
     award.age_one_day
-
-    if award.expires_in < 0
-      if award.name != BLUE_FIRST
-        if award.name != BLUE_COMPARE
-          award.decrement_quality
-          if award.name == BLUE_STAR
-            award.decrement_quality
-          end
-        else
-          award.remove_all_quality
-        end
-      else
-        award.increment_quality
-      end
-    end
-    
+    handle_expired_awards(award)
   end
 end
