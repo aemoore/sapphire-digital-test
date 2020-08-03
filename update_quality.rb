@@ -21,9 +21,7 @@ def update_quality(awards)
       end
     end
 
-    if award.name != BLUE_DISTINCTION_PLUS
-      award.expires_in -= 1
-    end
+    award.age_one_day
 
     if award.expires_in < 0
       if award.name != BLUE_FIRST

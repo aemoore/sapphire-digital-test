@@ -18,4 +18,10 @@ Award = Struct.new(:name, :expires_in, :quality) do
     self.quality = 0
   end
 
+  def age_one_day
+    if self.name != BLUE_DISTINCTION_PLUS
+      self.expires_in -= 1
+    end
+  end
+
 end

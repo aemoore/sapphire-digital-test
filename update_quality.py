@@ -1,7 +1,4 @@
-BLUE_FIRST = 'Blue First'
-BLUE_COMPARE = 'Blue Compare'
-BLUE_STAR = 'Blue Star'
-BLUE_DISTINCTION_PLUS = 'Blue Distinction Plus'
+from string_constants import BLUE_COMPARE, BLUE_FIRST, BLUE_STAR
 
 def update_quality(awards):
     for award in awards:
@@ -23,8 +20,7 @@ def update_quality(awards):
                     if award.expires_in > 6:
                         award.increment_quality()
 
-        if award.name != BLUE_DISTINCTION_PLUS:
-            award.expires_in -= 1
+        award.age_one_day()
 
         if award.expires_in < 0:
             if award.name != BLUE_FIRST:
