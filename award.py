@@ -1,3 +1,5 @@
+from  update_quality import BLUE_DISTINCTION_PLUS
+
 class Award(object):
     def __init__(self, name=None, expires_in=None, quality=None):
         self.name = name
@@ -5,7 +7,7 @@ class Award(object):
         self.quality = quality
 
     def decrement_quality(self):
-        if self.quality > 0 and self.name != "Blue Distinction Plus":
+        if self.quality > 0 and self.name != BLUE_DISTINCTION_PLUS:
             self.quality -= 1
 
 
